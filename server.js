@@ -8,11 +8,11 @@ var express = require("express"),
         "DDMMMMYYYY",
         "DDYYYYMMMM",
         ];
-
-app.use(express.static(__dirname + '/public'));
+app.set("view engine", "ejs");        
+app.use(express.static('public'));
 
 app.get("/", function(req, res) {
-    res.send("Hello Wolrd");
+    res.render("index");
 });
 
 app.get("/:time", function(req, res) {
